@@ -1,6 +1,6 @@
 import { GamePanel } from "./GamePanel"
-import appStore from "../../redux/store"
-import { ProviderWrapper } from "../providerwrapper/ProviderWrapper"
+import appStore from "../Store/store"
+import { ProviderWrapper } from "../ProviderWrapper/ProviderWrapper"
 export default {
   title: "GamePanel",
   component: GamePanel,
