@@ -4,7 +4,6 @@ import { FieldProp } from "../FieldProp/FieldProp"
 import { GAME_FIELDWIDTH } from "../Game/Game"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { FlowSliceState, init, nextState } from "../Store/flowSlice"
 import {
   startGame,
@@ -18,9 +17,6 @@ import {
   GameSliceState,
 } from "../Store/gameplaySlice"
 import { AppStateType, flowState, gameplayState } from "../Store/store"
-
-import { AuthContext } from "../Context"
-
 
 export const GamePanel: React.FC = ({}) => {
   const dispatch = useDispatch()
@@ -53,7 +49,12 @@ export const GamePanel: React.FC = ({}) => {
       <div style={{ fontSize: 18, paddingBottom: 20, color: "red" }}>
         Welcome to game of life, {localStorage.getItem("auth")}!
         &nbsp;&nbsp;&nbsp;
-        <button type="submit" onClick={() => {window.location.href = '/login'}}>
+        <button
+          type="submit"
+          onClick={() => {
+            window.location.href = "/login"
+          }}
+        >
           Logout
         </button>
       </div>

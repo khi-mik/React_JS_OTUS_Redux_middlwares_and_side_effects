@@ -29,7 +29,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({}) => {
           placeholder="Input your name"
           onChange={(e) => setTerm(e.target.value)}
         />
-        <button type="submit" data-testid="nameButton" className={styles.submitButton}>
+        <button
+          type="submit"
+          data-testid="nameButton"
+          className={styles.submitButton}
+        >
           Start
         </button>
       </div>
