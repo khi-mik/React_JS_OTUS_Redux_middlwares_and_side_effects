@@ -3,7 +3,7 @@ import styles from "./LoginForm.module.css"
 import { useNavigate } from "react-router-dom"
 
 type LoginFormProps = {
-  onSubmit: () => void
+  onSubmit: (name: string) => void
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({}) => {
@@ -14,10 +14,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({}) => {
     <form
       onSubmit={(e) => {
         e.preventDefault()
-
         localStorage.setItem("auth", term)
         if (term) {
           navigate("/game", { replace: true })
+          location.reload()
         }
       }}
     >

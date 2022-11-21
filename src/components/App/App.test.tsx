@@ -4,6 +4,7 @@ import "@testing-library/jest-dom"
 import { Store } from "redux"
 import appStore from "../Store/store"
 import { Provider } from "react-redux"
+
 let store: Store
 
 describe("App render tests", () => {
@@ -25,6 +26,6 @@ describe("App render tests", () => {
     act(() => {
       button.dispatchEvent(new MouseEvent("click", { bubbles: true }))
     })
-    expect(screen.getByTestId("run")).toBeInTheDocument()
+    expect(global.window.location.pathname).toContain("/game")
   })
 })

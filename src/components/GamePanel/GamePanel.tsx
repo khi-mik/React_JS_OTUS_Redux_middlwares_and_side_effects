@@ -17,8 +17,10 @@ import {
   GameSliceState,
 } from "../Store/gameplaySlice"
 import { AppStateType, flowState, gameplayState } from "../Store/store"
+import { AuthContext } from "../Context"
+import { useContext } from "react"
 
-export const GamePanel: React.FC = ({}) => {
+export const GamePanel: React.FC = () => {
   const dispatch = useDispatch()
   const gameState = useSelector<AppStateType, FlowSliceState>(flowState)
 
@@ -44,6 +46,8 @@ export const GamePanel: React.FC = ({}) => {
     }
   })
 
+  const { setUserName } = useContext(AuthContext)
+
   return (
     <div style={{ width: GAME_FIELDWIDTH }}>
       <div style={{ fontSize: 18, paddingBottom: 20, color: "red" }}>
@@ -53,6 +57,8 @@ export const GamePanel: React.FC = ({}) => {
           type="submit"
           onClick={() => {
             window.location.href = "/login"
+            setUserName(null)
+            localStorage.removeItem("auth")
           }}
         >
           Logout
